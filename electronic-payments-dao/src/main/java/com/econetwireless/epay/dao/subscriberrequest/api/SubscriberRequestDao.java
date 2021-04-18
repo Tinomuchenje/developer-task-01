@@ -11,4 +11,8 @@ import java.util.List;
  */
 public interface SubscriberRequestDao extends JpaRepository<SubscriberRequest, Long> {
     List<SubscriberRequest> findByPartnerCode(@Param("partnerCode") String partnerCode);
+
+    void update(SubscriberRequest createdSubscriberRequest);
+
+    SubscriberRequest persist(SubscriberRequest subscriberRequest);
 }
