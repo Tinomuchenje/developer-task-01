@@ -36,14 +36,14 @@ public class EpayResource {
     }
 
     @GetMapping(value = "enquiries/{partnerCode}/balances/{mobileNumber}",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+            produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     public AirtimeBalanceResponse enquireAirtimeBalance(@PathVariable("partnerCode") final String pCode, @PathVariable("mobileNumber") final String msisdn) {
         return epayRequestProcessor.enquireAirtimeBalance(pCode, msisdn);
     }
 
     @PostMapping(value = "credits",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+            produces = {MediaType.APPLICATION_JSON_UTF8_VALUE},
+            consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     public AirtimeTopupResponse creditAirtime(@RequestBody final AirtimeTopupRequest airtimeTopupRequest) {
         return epayRequestProcessor.creditAirtime(airtimeTopupRequest);
     }
