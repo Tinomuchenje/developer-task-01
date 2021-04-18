@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MobileNumberUtils {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
 
     private MobileNumberUtils() {
 
