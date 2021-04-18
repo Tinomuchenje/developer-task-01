@@ -34,7 +34,7 @@ import static org.hamcrest.Matchers.is;
         @ContextConfiguration(classes = {RootConfig.class}),
         @ContextConfiguration(classes = {EpayApiWebConfig.class})
 })
-public class EpayResourcesIT {
+public class EpayResourcesTests {
 
     @Autowired
     private WebApplicationContext wac;
