@@ -7,4 +7,4 @@
 
 To Do
 * Refactor the code
-* Expose more methods to couple the tests
+* Expose more methods to de-couple the tests
