@@ -47,7 +47,7 @@ public class CreditsServiceImpl implements CreditsService{
         return airtimeTopupResponse;
     }
 
-    private static void changeSubscriberRequestStatusOnCredit(final SubscriberRequest subscriberRequest, final INCreditResponse inCreditResponse) {
+    public void changeSubscriberRequestStatusOnCredit(final SubscriberRequest subscriberRequest, final INCreditResponse inCreditResponse) {
         final boolean isSuccessfulResponse = ResponseCode.SUCCESS.getCode().equalsIgnoreCase(inCreditResponse.getResponseCode());
         if(!isSuccessfulResponse) {
             subscriberRequest.setStatus(SystemConstants.STATUS_FAILED);
@@ -57,7 +57,8 @@ public class CreditsServiceImpl implements CreditsService{
             subscriberRequest.setBalanceBefore(inCreditResponse.getBalance() - subscriberRequest.getAmount());
         }
     }
-    private static SubscriberRequest populateSubscriberRequest(final AirtimeTopupRequest airtimeTopupRequest) {
+    
+    public SubscriberRequest populateSubscriberRequest(final AirtimeTopupRequest airtimeTopupRequest) {
         final SubscriberRequest subscriberRequest = new SubscriberRequest();
         subscriberRequest.setRequestType(SystemConstants.REQUEST_TYPE_AIRTIME_TOPUP);
         subscriberRequest.setPartnerCode(airtimeTopupRequest.getPartnerCode());

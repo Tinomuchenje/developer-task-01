@@ -18,6 +18,11 @@ public class PartnerCodeValidatorImpl implements PartnerCodeValidator{
 
     @Override
     public boolean validatePartnerCode(final String partnerCode) {
+
+        if(partnerCode == null || partnerCode.equals("") || partnerCode.equals(" ")){
+            return false;
+        }
+
         final boolean isValidPartner = requestPartnerDao.findByCode(partnerCode) != null;
         if(!isValidPartner) {
             throw new EpayException(ResponseCode.INVALID_REQUEST, "Invalid partner code supplied : "+partnerCode);
